@@ -41,3 +41,6 @@ logs/*.log
 
 # Docker volumes
 postgres_data/
+
+# Documentation generee par `make docs`
+site/
