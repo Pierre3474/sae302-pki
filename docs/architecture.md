@@ -129,9 +129,9 @@ erDiagram
 |--------|:-----:|:------:|:------:|
 | Gérer les utilisateurs | oui | non | non |
 | Créer un contexte PKI | oui | oui | non |
-| Générer des clés | oui | (ses PKI) | non |
-| Signer des certificats | oui | (ses PKI) | non |
-| Révoquer des certificats | oui | (ses PKI) | non |
+| Générer des clés | oui | oui (ses PKI) | non |
+| Signer des certificats | oui | oui (ses PKI) | non |
+| Révoquer des certificats | oui | oui (ses PKI) | non |
 | Lire les certificats | oui | oui | oui |
 | Voir les logs | oui | non | non |
 | Déverrouiller un compte | oui | non | non |

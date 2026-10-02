@@ -470,12 +470,12 @@ def authenticate(username: str, challenge: str, client_hash: str) -> bool:
 
 | Étape | Mécanisme | Sécurité |
 |-------|-----------|---------|
-| `nc` direct | Aucune auth | non |
-| `USER / PWD` en clair | Mot de passe visible | non |
-| `user:sha1(pwd)` en fichier | Hash en base, mais MDP en clair sur réseau | attention |
-| `CHALL / PWDHASH` | Jamais le MDP sur le réseau | oui |
-| `CHALL / SHA256(CHALL+SHA256(pwd))` | Base sécurisée + réseau sécurisé | ouioui |
-| Argon2id + challenge + TLS | Production-ready | ouiouioui |
+| `nc` direct | Aucune auth | aucun |
+| `USER / PWD` en clair | Mot de passe visible | aucun |
+| `user:sha1(pwd)` en fichier | Hash en base, mais MDP en clair sur réseau | insuffisant |
+| `CHALL / PWDHASH` | Jamais le MDP sur le réseau | correct |
+| `CHALL / SHA256(CHALL+SHA256(pwd))` | Base sécurisée + réseau sécurisé | bon |
+| Argon2id + challenge + TLS | Production-ready | très bon |
 
 > Le projet SAE302 implémente la dernière ligne : Argon2id pour le stockage,
 > challenge-response SHA256 pour l'authentification réseau, XOR + TLS optionnel
