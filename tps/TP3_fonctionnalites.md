@@ -54,11 +54,11 @@ python src/client.py -H ::1 -6 -u admin -p
 
 | Configuration | Résultat | Explication |
 |--------------|---------|-------------|
-| Serveur IPv4 + Client IPv4 | ✅ Fonctionne | Standard |
-| Serveur IPv6 (`IPV6_V6ONLY=1`) + Client IPv6 | ✅ Fonctionne | AF_INET6 strict |
-| Serveur IPv4 + Client IPv6 | ❌ Échoue | Familles d'adresses incompatibles |
-| Serveur IPv6 (`IPV6_V6ONLY=1`) + Client IPv4 | ❌ Échoue | `IPV6_V6ONLY=1` désactive dual-stack |
-| Serveur IPv6 (`IPV6_V6ONLY=0`) + Client IPv4 | ✅ Fonctionne (Linux) | Dual-stack via `::ffff:` mapping |
+| Serveur IPv4 + Client IPv4 | Fonctionne | Standard |
+| Serveur IPv6 (`IPV6_V6ONLY=1`) + Client IPv6 | Fonctionne | AF_INET6 strict |
+| Serveur IPv4 + Client IPv6 | Échoue | Familles d'adresses incompatibles |
+| Serveur IPv6 (`IPV6_V6ONLY=1`) + Client IPv4 | Échoue | `IPV6_V6ONLY=1` désactive dual-stack |
+| Serveur IPv6 (`IPV6_V6ONLY=0`) + Client IPv4 | Fonctionne (Linux) | Dual-stack via `::ffff:` mapping |
 
 > **Note :** `IPV6_V6ONLY=1` est utilisé par sécurité (comportement explicite).
 > Sur Linux, passer à `IPV6_V6ONLY=0` permettrait le dual-stack.
@@ -174,9 +174,9 @@ Le téléphone et le serveur calculent **indépendamment** le même code à part
 
 | Décalage horloge | Résultat |
 |-----------------|---------|
-| < 30 s | ✅ Accepté (valid_window=1 tolère ±1 période) |
-| 30–60 s | ⚠️ Peut être refusé selon le moment |
-| > 60 s | ❌ Toujours refusé |
+| < 30 s | Accepté (valid_window=1 tolère ±1 période) |
+| 30–60 s | Peut être refusé selon le moment |
+| > 60 s | Toujours refusé |
 
 **Solution :** Synchroniser les horloges avec NTP :
 ```bash

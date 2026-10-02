@@ -397,9 +397,9 @@ Il ne peut pas calculer `SHA256(CHALL + pwd)`.
 
 | Stockage base | Compatible challenge-response ? | Explication |
 |--------------|-------------------------------|-------------|
-| Mot de passe en clair | ✅ Oui | Serveur peut recalculer |
-| `SHA1(pwd)` | ⚠️ Seulement si le client envoie `SHA256(CHALL + SHA1(pwd))` | Les deux côtés utilisent SHA1(pwd) comme "secret" |
-| `Argon2id(pwd)` | ❌ Non (par conception) | Argon2id est non-déterministe (sel aléatoire) |
+| Mot de passe en clair | Oui | Serveur peut recalculer |
+| `SHA1(pwd)` | Seulement si le client envoie `SHA256(CHALL + SHA1(pwd))` | Les deux côtés utilisent SHA1(pwd) comme "secret" |
+| `Argon2id(pwd)` | Non (par conception) | Argon2id est non-déterministe (sel aléatoire) |
 
 **Solution adoptée dans ce projet :**
 Le client envoie `SHA256(CHALL + SHA256(pwd))` — le serveur stocke `SHA256(pwd)`.
@@ -470,12 +470,12 @@ def authenticate(username: str, challenge: str, client_hash: str) -> bool:
 
 | Étape | Mécanisme | Sécurité |
 |-------|-----------|---------|
-| `nc` direct | Aucune auth | ❌ |
-| `USER / PWD` en clair | Mot de passe visible | ❌ |
-| `user:sha1(pwd)` en fichier | Hash en base, mais MDP en clair sur réseau | ⚠️ |
-| `CHALL / PWDHASH` | Jamais le MDP sur le réseau | ✅ |
-| `CHALL / SHA256(CHALL+SHA256(pwd))` | Base sécurisée + réseau sécurisé | ✅✅ |
-| Argon2id + challenge + TLS | Production-ready | ✅✅✅ |
+| `nc` direct | Aucune auth | non |
+| `USER / PWD` en clair | Mot de passe visible | non |
+| `user:sha1(pwd)` en fichier | Hash en base, mais MDP en clair sur réseau | attention |
+| `CHALL / PWDHASH` | Jamais le MDP sur le réseau | oui |
+| `CHALL / SHA256(CHALL+SHA256(pwd))` | Base sécurisée + réseau sécurisé | ouioui |
+| Argon2id + challenge + TLS | Production-ready | ouiouioui |
 
 > Le projet SAE302 implémente la dernière ligne : Argon2id pour le stockage,
 > challenge-response SHA256 pour l'authentification réseau, XOR + TLS optionnel

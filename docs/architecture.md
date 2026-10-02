@@ -127,14 +127,14 @@ erDiagram
 
 | Action | admin | editor | viewer |
 |--------|:-----:|:------:|:------:|
-| Gérer les utilisateurs | ✅ | ❌ | ❌ |
-| Créer un contexte PKI | ✅ | ✅ | ❌ |
-| Générer des clés | ✅ | ✅ (ses PKI) | ❌ |
-| Signer des certificats | ✅ | ✅ (ses PKI) | ❌ |
-| Révoquer des certificats | ✅ | ✅ (ses PKI) | ❌ |
-| Lire les certificats | ✅ | ✅ | ✅ |
-| Voir les logs | ✅ | ❌ | ❌ |
-| Déverrouiller un compte | ✅ | ❌ | ❌ |
+| Gérer les utilisateurs | oui | non | non |
+| Créer un contexte PKI | oui | oui | non |
+| Générer des clés | oui | (ses PKI) | non |
+| Signer des certificats | oui | (ses PKI) | non |
+| Révoquer des certificats | oui | (ses PKI) | non |
+| Lire les certificats | oui | oui | oui |
+| Voir les logs | oui | non | non |
+| Déverrouiller un compte | oui | non | non |
 
 ## Stack technique
 
