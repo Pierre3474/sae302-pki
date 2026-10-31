@@ -15,7 +15,7 @@ Application **client/serveur TCP** de gestion d'infrastructure à clés publique
 |-----------|----------------|
 | **Réseau** | Serveur TCP multi-clients (threads), port 7890 |
 | **Chiffrement** | XOR stream cipher + AES-CBC + framing 10 octets |
-| **Auth** | Challenge-response SHA256 — mot de passe jamais en clair |
+| **Auth** | Challenge-response SHA256 : mot de passe jamais en clair |
 | **Stockage MdP** | Argon2id (standard OWASP 2023) |
 | **RBAC** | 3 rôles : admin, editor, viewer |
 | **PKI** | Keygen RSA/EC, CSR X.509v3, signature, révocation, CRL |
@@ -220,7 +220,7 @@ pkicli[ca1]# bye
 
 ---
 
-## Sécurité — défense en profondeur
+## Sécurité : défense en profondeur
 
 | Mécanisme | Détail |
 |-----------|--------|
@@ -240,15 +240,15 @@ pkicli[ca1]# bye
 
 Accessible sur `http://localhost:8080` après `make start-demo`.
 
-- **Dashboard** — compteurs PKI, certificats valides/révoqués/expirant, graphique
-- **Gestion PKI** — keygen RSA/EC, CSR, signature, révocation, renouvellement
-- **Export Bundle ZIP** — certificat + clé privée + README en un clic
-- **Modal CLI** — commandes équivalentes à copier-coller
-- **Journaux d'audit** — auto-refresh 30s, badge LIVE, export CSV, filtre
-- **Matrice RBAC** — visualisation complète des permissions (admin uniquement)
-- **Profil / TOTP** — activation 2FA avec QR code et codes de récupération
-- **Mode sombre** — persistant (localStorage)
-- **Checklist mot de passe** — validation en temps réel
+- **Dashboard** : compteurs PKI, certificats valides/révoqués/expirant, graphique
+- **Gestion PKI** : keygen RSA/EC, CSR, signature, révocation, renouvellement
+- **Export Bundle ZIP** : certificat + clé privée + README en un clic
+- **Modal CLI** : commandes équivalentes à copier-coller
+- **Journaux d'audit** : auto-refresh 30s, badge LIVE, export CSV, filtre
+- **Matrice RBAC** : visualisation complète des permissions (admin uniquement)
+- **Profil / TOTP** : activation 2FA avec QR code et codes de récupération
+- **Mode sombre** : persistant (localStorage)
+- **Checklist mot de passe** : validation en temps réel
 
 ---
 
@@ -308,4 +308,4 @@ make coverage   # rapport HTML (htmlcov/)
 | `SERVER_IPV6` | `0` | `1` pour activer IPv6 |
 
 ---
-*SAE302 — BUT RT2 — Développer des applications communicantes*
+*SAE302, BUT RT2 : développer des applications communicantes*
